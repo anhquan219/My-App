@@ -17,7 +17,7 @@ jobs:
       - name: Build Docker Image tu Dockerfile
         run: docker build --progress=plain -t quan/my-app:v0
       - name: Login Docker Hub
-        run: docker login -u ${{ secrects.DOCKERHUB_USERNAME }} -p ${{ secrects.DOCKERHUB_PASSWORD }}
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Push Docker image to Docker Hub
         run: docker push quan/my-app:v0
 
@@ -36,7 +36,7 @@ jobs:
           post: ${{ secrets.POST}}
           # Các câu lệnh thực thi trên VPS
           script: |
-            docker login -u ${{ secrects.DOCKERHUB_USERNAME }} -p ${{ secrects.DOCKERHUB_PASSWORD }}
+            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
             docker pull quan/my-app:v0
             docker stop my-container
             docker rm my-container
