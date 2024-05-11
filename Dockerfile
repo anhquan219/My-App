@@ -9,8 +9,8 @@ COPY package-lock.json .
 COPY tsconfig.json .
 COPY ecosystem.config.js .
 COPY .env.production .
+COPY .env .
 COPY ./src ./src
-COPY ./openapi ./openapi
 
 # Cài các thư viện cho hệ điều hành
 RUN apk add python3
@@ -22,4 +22,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Run Server nó lên
-CMD ["pm2-runtime", "start", "ecosystem.config.js", "--env", "production"]
+CMD ["pm2-runtime", "start", "ecosystem.config.js"]

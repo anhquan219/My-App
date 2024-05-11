@@ -1,15 +1,8 @@
-module.export = {
-  app: [
+module.exports = {
+  apps: [
     {
       name: "my-app",
-      script: "node dist.index",
-      env: {
-        NODE_ENV: "development",
-        TEN_BIEN: "Gia tri",
-      },
-      env_production: {
-        NODE_ENV: "production",
-      },
+      script: "./node_modules/next/dist/bin/next",
     },
   ],
 };
